@@ -1,0 +1,42 @@
+stages:
+  - validate
+  - plan
+
+variables:
+  TF_ROOT: tofu/envs/event
+
+default:
+  image: ghcr.io/opentofu/opentofu:1.8.8
+
+.tofu_common:
+  before_script:
+    - cd "$TF_ROOT"
+
+tofu:fmt:
+  stage: validate
+  extends: .tofu_common
+  script:
+    - tofu fmt -recursive -check
+
+tofu:validate:
+  stage: validate
+  extends: .tofu_common
+  script:
+    - tofu init -backend=false
+    - tofu validate
+
+tofu:plan:
+  stage: plan
+  extends: .tofu_common
+  script:
+    - |
+      if [ -z "${PROXMOX_API_URL:-}" ] || [ -z "${PROXMOX_API_TOKEN:-}" ]; then
+        echo "Skipping plan: set PROXMOX_API_URL and PROXMOX_API_TOKEN to enable planning."
+        exit 0
+      fi
+    - tofu init -backend-config=backend.hcl
+    - tofu plan -input=false -out=tfplan
+  artifacts:
+    paths:
+      - "$TF_ROOT/tfplan"
+    expire_in: 1 day

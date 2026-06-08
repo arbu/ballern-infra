@@ -1,0 +1,12 @@
+#cloud-config
+hostname: event-cp-01
+
+write_files:
+  - path: /etc/rancher/rke2/config.yaml
+    permissions: "0600"
+    content: |
+      token: "TODO_REPLACE_WITH_BOOTSTRAP_TOKEN"
+      tls-san:
+        - k8s-api.c.ballern.net
+
+# TODO: add deterministic first-boot commands for control-plane bootstrap.

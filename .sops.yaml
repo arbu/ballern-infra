@@ -1,0 +1,13 @@
+creation_rules:
+  # TODO: replace placeholder age recipient with the real team key.
+  - path_regex: tofu/envs/event/.*\\.tfvars$
+    encrypted_regex: "^(data|stringData|.*_secret|.*_token|.*_password)$"
+    age: ["age1replacewithrealkeyxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"]
+
+  - path_regex: gitops/.*/secrets?/.*\\.(yaml|yml|json|env)$
+    encrypted_regex: "^(data|stringData|.*_secret|.*_token|.*_password)$"
+    age: ["age1replacewithrealkeyxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"]
+
+  - path_regex: .*secrets?.*\\.(yaml|yml|json|env)$
+    encrypted_regex: "^(data|stringData|.*_secret|.*_token|.*_password)$"
+    age: ["age1replacewithrealkeyxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"]

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: monitoring-placeholder
+  namespace: monitoring
+data:
+  note: "TODO: replace placeholder with monitoring manifests or Helm release wiring"

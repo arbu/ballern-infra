@@ -1,0 +1,10 @@
+#cloud-config
+package_update: true
+packages:
+  - qemu-guest-agent
+ssh_pwauth: false
+disable_root: true
+
+# TODO: provide authorized SSH keys through templating.
+# ssh_authorized_keys:
+#   - "ssh-ed25519 AAAA..."
