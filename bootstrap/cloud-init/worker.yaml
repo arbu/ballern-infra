@@ -1,0 +1,11 @@
+#cloud-config
+hostname: event-worker-01
+
+write_files:
+  - path: /etc/rancher/rke2/config.yaml
+    permissions: "0600"
+    content: |
+      server: https://k8s-api.c.ballern.net:9345
+      token: "TODO_REPLACE_WITH_BOOTSTRAP_TOKEN"
+
+# TODO: add deterministic first-boot commands for worker node bootstrap.

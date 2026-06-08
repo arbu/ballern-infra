@@ -1,0 +1,8 @@
+# Copy this file to tofu.tfvars and replace placeholders.
+proxmox_api_url      = "https://proxmox.example.com:8006/api2/json"
+proxmox_api_token    = "user@pve!tokenid=replace-me"
+proxmox_tls_insecure = false
+
+cluster_name            = "ballern-event"
+node_count_controlplane = 1
+node_count_workers      = 2

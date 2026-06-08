@@ -16,7 +16,7 @@ This repository is intended to define and operate a reproducible, idempotent Kub
 
 ## Status
 
-Planning and documentation repository.
+Initial implementation scaffolding is in place for OpenTofu, GitLab CI, SOPS, and Argo CD/GitOps layout.
 
 ## Core goals
 
@@ -26,10 +26,12 @@ Planning and documentation repository.
 - rebuild-first recovery model
 - maintainable operations for a small internal cluster
 
-## Planned repository layout
+## Repository layout
 
 ```text
 .
+├── .gitlab-ci.yml
+├── .sops.yaml
 ├── docs/
 ├── tofu/
 ├── bootstrap/
@@ -56,7 +58,7 @@ Planning and documentation repository.
 ## Next steps
 
 1. finalize missing infrastructure inputs
-2. create OpenTofu/Terraform skeleton
-3. add SOPS and GitLab CI scaffolding
-4. bootstrap Proxmox image/template workflow
-5. implement RKE2 and Argo CD bootstrap
+2. implement OpenTofu modules/resources for Proxmox and RKE2
+3. replace placeholder SOPS age recipient and encrypted files
+4. wire Argo CD applications to the real repository URL and manifests
+5. bootstrap Proxmox image/template workflow

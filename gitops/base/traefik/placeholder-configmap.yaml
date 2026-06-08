@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: traefik-placeholder
+  namespace: traefik
+data:
+  note: "TODO: replace placeholder with traefik manifests or Helm release wiring"

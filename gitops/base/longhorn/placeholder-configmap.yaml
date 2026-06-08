@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: longhorn-placeholder
+  namespace: longhorn
+data:
+  note: "TODO: replace placeholder with longhorn manifests or Helm release wiring"

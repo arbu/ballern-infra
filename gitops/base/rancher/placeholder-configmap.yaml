@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rancher-placeholder
+  namespace: rancher
+data:
+  note: "TODO: replace placeholder with rancher manifests or Helm release wiring"

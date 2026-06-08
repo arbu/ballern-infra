@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: metallb-placeholder
+  namespace: metallb
+data:
+  note: "TODO: replace placeholder with metallb manifests or Helm release wiring"
